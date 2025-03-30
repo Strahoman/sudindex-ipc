@@ -5,7 +5,7 @@ from datetime import datetime
 from io import BytesIO
 
 url = "https://rosstat.gov.ru/storage/mediabank/ipc_mes_02-2025.xlsx"
-response = requests.get(url)
+response = requests.get(url, verify=False)
 df = pd.read_excel(BytesIO(response.content), sheet_name="01", header=None)
 
 month_names = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
